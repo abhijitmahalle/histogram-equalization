@@ -1,17 +1,7 @@
-#!/usr/bin/env python
-# coding: utf-8
-
-# In[28]:
-
-
 import cv2 
 import numpy as np
 import os
 import copy
-
-
-# In[20]:
-
 
 def histogramEqualization(img):
     bins = np.zeros((256))
@@ -39,10 +29,6 @@ def histogramEqualization(img):
             img2[j][i] = CFD[n]*255
     return img2
 
-
-# In[32]:
-
-
 def ahe(img, tile_size_r, tile_size_c):
     image = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     processed_img = copy.deepcopy(image)
@@ -53,19 +39,11 @@ def ahe(img, tile_size_r, tile_size_c):
     
     return processed_img
 
-
-# In[7]:
-
-
 tile_size_r = 8
 tile_size_c = 8
 
-
-# In[5]:
-
-
-source_path = 'C:/Users/abhij/OneDrive/Desktop/sem2/perception/project2/adaptive_hist_data/'
-destn_path = 'C:/Users/abhij/OneDrive/Desktop/sem2/perception/project2/results/histogram_equalization/'
+source_path = 'data/'
+destn_path = 'results/histogram_equalization/'
 
 for image in os.listdir(source_path):
     if (image.endswith(".png")):
@@ -73,22 +51,11 @@ for image in os.listdir(source_path):
         processed_img = histogramEqualization(img)
         cv2.imwrite(os.path.join(destn_path, image), processed_img)
 
-
-# In[7]:
-
-
-source_path = 'C:/Users/abhij/OneDrive/Desktop/sem2/perception/project2/adaptive_hist_data/'
-destn_path = 'C:/Users/abhij/OneDrive/Desktop/sem2/perception/project2/results/ahe/'
+source_path = 'data/'
+destn_path = 'ahe/adaptive_histogram_equalization'
 
 for image in os.listdir(source_path):
     if (image.endswith(".png")):
         img = cv2.imread(os.path.join(source_path,image))
         processed_img = ahe(img, tile_size_r, tile_size_c)
         cv2.imwrite(os.path.join(destn_path, image), processed_img)
-
-
-# In[ ]:
-
-
-
-
