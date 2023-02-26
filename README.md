@@ -3,6 +3,10 @@
 # Histogram Equalization
 This repository contains code to perform Histogram Equalization and Adaptive Histogram Equalization on an image or a video. No OpenCV inbuilt functions were used and the algorithm has been implemented from scratch.
 
+## Dependencies:
+  - Python 2.0 or above
+  - OpenCV
+ 
 ### Instructions to run the code:
 ```
 python histogram_equalization.py
